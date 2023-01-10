@@ -40,15 +40,43 @@ namespace Uc.BookStore
 
             app.UseStaticFiles();
 
+
             app.UseRouting();
 
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapGet("/", async context =>
+                endpoints.Map("/", async context =>
                 {
+                    if (env.IsDevelopment())
+                    {
+                        await context.Response.WriteAsync("Hello From Dev");
+                    }
+                    else if (env.IsStaging())
+                    {
+                        await context.Response.WriteAsync("Hello From Stag");
+
+                    }
+                    else if (env.IsProduction())
+                    {
+                        await context.Response.WriteAsync("Hello from Prod");
+                    }
+                    else if (env.IsEnvironment("prod"))
+                    {
+                        await context.Response.WriteAsync("Hello from custom env"); 
+                    }
+                    else
                     await context.Response.WriteAsync("Hello World!");
+                });
+            });
+            
+
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.Map("/umesh", async context =>
+                {
+                    await context.Response.WriteAsync("Hello Umesh!");
                 });
             });
         }
