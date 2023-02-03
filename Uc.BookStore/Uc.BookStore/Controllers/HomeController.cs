@@ -4,9 +4,15 @@ namespace Uc.BookStore.Controllers
 {
     public class HomeController : Controller
     {
-        public string Index()
+        public ViewResult Index()
         {
-            return "Controller working";
+            
+            return View();
+        }
+
+        public ViewResult Contactus()
+        {
+            return View("AboutUs");
         }
     }
 }
