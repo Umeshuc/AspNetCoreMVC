@@ -9,14 +9,25 @@
 <html>
     <head>
         <meta name="viewport" content="width=device-width"/>
-    <title>Index</title>
-    <link href="~/css/logo.css" rel="stylesheet" />
+        <title>Index</title>
+        <link href="~/css/logo.css" rel="stylesheet" />
+        <link href="~/lib/twitter-bootstrap/css/bootstrap.css" rel="stylesheet" />
+   
     </head>
-<body>
+<body class="container">
     <img src="~/img/uc.png" class="logo" alt="logo" />
-    <img src="~/img/uc2.png" class="uc2" alt="uc"/>
-       <h1>Hi Welcoome to my application</h1>
     
+       <h1 class="h1">Hi Welcoome to my application</h1>
+       <input type="button" value="click me" class="btn btn-danger" />
+   
+   
    
 </body>
+<script src="~/lib/jquery/jquery.js"></script>
 </html>
+
+<script>
+    $(document).ready(function(){
+        alert("Page Loaded");
+    });
+</script>
